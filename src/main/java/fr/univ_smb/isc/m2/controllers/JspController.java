@@ -8,7 +8,7 @@ public class JspController {
 
     @RequestMapping("/hello-jsp")
     public String home() {
-        return "home";
+        return "hello";
     }
 
 }
