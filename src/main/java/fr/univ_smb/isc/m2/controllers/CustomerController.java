@@ -37,11 +37,11 @@ public class CustomerController {
 
         List<Customer> collect = customers.stream().filter(u -> u.id == parseInt(id)).collect(toList());
 
-        if (!collect.isEmpty()) {
-            return collect.get(0);
+        if (collect.isEmpty()) {
+            throw new ResourceNotFoundException();
         }
 
-        throw new ResourceNotFoundException();
+        return collect.get(0);
 
     }
 

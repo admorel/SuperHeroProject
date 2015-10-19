@@ -26,15 +26,15 @@ public class JsonControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        mvc = MockMvcBuilders.standaloneSetup(new JsonController()).build();
+        mvc = MockMvcBuilders.standaloneSetup(new CustomerController()).build();
     }
 
     @Test
-    public void getHello() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/hello-json")
+    public void shouldGetCustomer() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/customers/3")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("{\"hello\":\"world\"}")));
+                .andExpect(content().string(equalTo("{\"firstName\":\"Rod\",\"lastName\":\"Evans\",\"id\":3}")));
     }
 
 }
