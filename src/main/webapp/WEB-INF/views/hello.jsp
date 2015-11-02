@@ -10,7 +10,7 @@
 
     <title>Spring MVC - Demo</title>
 
-    <%--<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">--%>
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
     <%--<script type='text/javascript' src="<c:url value="/resources/js/app.js" />"></script> --%>
 
 </head>
