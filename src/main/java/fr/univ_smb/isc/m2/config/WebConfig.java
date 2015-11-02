@@ -22,19 +22,4 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
-    /*
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("backlog");
-        registry.addViewController("/backlog").setViewName("backlog");
-        registry.addViewController("/sprint").setViewName("sprint");
-        registry.addViewController("/create-form").setViewName("create-form");
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/js/**").addResourceLocations("/js/");
-    }
-    */
-
 }
