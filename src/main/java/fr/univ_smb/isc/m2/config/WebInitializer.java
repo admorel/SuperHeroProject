@@ -16,11 +16,14 @@ public class WebInitializer implements WebApplicationInitializer {
         ctx.setServletContext(servletContext);
         ctx.register(WebConfig.class);
         ctx.register(JPAConfig.class);
+        ctx.register(SecurityConfig.class);
 
 
         Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
+
+
 
     }
 

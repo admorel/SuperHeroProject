@@ -6,9 +6,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class JspController {
 
-    @RequestMapping("/hello-jsp")
-    public String home() {
+    @RequestMapping("/home")
+    public String hello() {
         return "hello";
     }
+
+    @RequestMapping("/admin")
+    public String admin() {
+        return "hello-protected";
+    }
+
+    @RequestMapping("/")
+    public String home() {
+        return "forward:/resources/html/index.html";
+    }
+
 
 }
