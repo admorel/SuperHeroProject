@@ -1,4 +1,4 @@
-package fr.univ_smb.isc.m2.customers;
+package fr.univ_smb.isc.m2.customer;
 
 import fr.univ_smb.isc.m2.config.rest.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

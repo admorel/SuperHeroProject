@@ -1,4 +1,4 @@
-package fr.univ_smb.isc.m2.customers;
+package fr.univ_smb.isc.m2.customer;
 
 public class Customer {
 
