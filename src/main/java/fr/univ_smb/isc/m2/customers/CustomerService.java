@@ -1,4 +1,4 @@
-package fr.univ_smb.isc.m2.customer;
+package fr.univ_smb.isc.m2.customers;
 
 import org.springframework.stereotype.Service;
 

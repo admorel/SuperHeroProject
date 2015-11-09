@@ -1,4 +1,4 @@
-package fr.univ_smb.isc.m2.rest;
+package fr.univ_smb.isc.m2.config.rest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
