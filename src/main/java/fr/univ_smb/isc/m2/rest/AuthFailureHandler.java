@@ -1,4 +1,4 @@
-package fr.univ_smb.isc.m2.controllers;
+package fr.univ_smb.isc.m2.rest;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;

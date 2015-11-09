@@ -1,6 +1,6 @@
 package fr.univ_smb.isc.m2.album;
 
-import fr.univ_smb.isc.m2.controllers.ResourceNotFoundException;
+import fr.univ_smb.isc.m2.rest.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
