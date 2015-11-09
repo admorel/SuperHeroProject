@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/api/albums")
 public class AlbumController {
 
     private final AlbumRepository albumRepository;
@@ -18,7 +19,7 @@ public class AlbumController {
     }
 
 
-    @RequestMapping(value = "/albums/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Album customer(@PathVariable String id) {
 
 
