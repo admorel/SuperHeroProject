@@ -3,6 +3,8 @@ package fr.univ_smb.isc.m2.home;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 @Controller
 public class HomeController {
 
@@ -12,7 +14,8 @@ public class HomeController {
     }
 
     @RequestMapping("/admin")
-    public String admin() {
+    public String admin(Principal principal) {
+        System.out.println("HomeController, User logged : " + principal.getName());
         return "hello-protected";
     }
 
