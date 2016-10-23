@@ -15,7 +15,6 @@ public class WebInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.setServletContext(servletContext);
         ctx.register(WebConfig.class);
-        ctx.register(JPAConfig.class);
         ctx.register(SecurityConfig.class);
 
 

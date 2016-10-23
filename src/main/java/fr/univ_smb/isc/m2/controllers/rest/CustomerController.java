@@ -1,6 +1,8 @@
-package fr.univ_smb.isc.m2.customer;
+package fr.univ_smb.isc.m2.controllers.rest;
 
 import fr.univ_smb.isc.m2.config.rest.ResourceNotFoundException;
+import fr.univ_smb.isc.m2.domain.customer.Customer;
+import fr.univ_smb.isc.m2.domain.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +34,11 @@ public class CustomerController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Customer customer(@PathVariable String id) {
 
-        List<Customer> collect = customerService.all().stream().filter(u -> u.id == parseInt(id)).collect(toList());
+        int customerId = parseInt(id);
+
+        System.err.println("Searching "  + customerId);
+
+        List<Customer> collect = customerService.all().stream().filter(u -> u.id == customerId).collect(toList());
 
         if (collect.isEmpty()) {
             throw new ResourceNotFoundException();

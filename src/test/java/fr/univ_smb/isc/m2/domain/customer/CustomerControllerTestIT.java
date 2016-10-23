@@ -1,14 +1,14 @@
-package fr.univ_smb.isc.m2.album;
+package fr.univ_smb.isc.m2.domain.customer;
 
 import fr.univ_smb.isc.m2.config.Application;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.TestRestTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -23,30 +23,31 @@ import static org.junit.Assert.assertThat;
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
-public class AlbumControllerTestIT {
+public class CustomerControllerTestIT {
 
     @Value("${local.server.port}")
     private int port;
 
     private RestTemplate template;
 
-    @Autowired
-    private AlbumRepository repository;
-
     @Before
     public void setUp() throws Exception {
         template = new TestRestTemplate();
-        repository.save(new Album("Shades of Deep Purple", 1968));
-        repository.save(new Album("Deep Purple", 1969));
-        repository.save(new Album("Fireball", 1971));
-        repository.save(new Album("Stormbringer", 1974));
     }
 
     @Test
-    public void shouldGetAlbumFromDatabase() throws Exception {
-        URL url = new URL("http://localhost:" + port + "/albums/3");
+    public void shouldGetCustomer() throws Exception {
+        URL url = new URL("http://localhost:" + port + "/customers/3");
         ResponseEntity<String> response = template.getForEntity(url.toString(), String.class);
-        assertThat(response.getBody(), equalTo("{\"id\":3,\"title\":\"Fireball\",\"year\":1971}"));
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
+        assertThat(response.getBody(), equalTo("{\"firstName\":\"Rod\",\"lastName\":\"Evans\",\"id\":3}"));
+    }
+
+    @Test
+    public void shouldNotGetNonExistingCustomer() throws Exception {
+        URL url = new URL("http://localhost:" + port + "/customers/8");
+        ResponseEntity<String> response = template.getForEntity(url.toString(), String.class);
+        assertThat(response.getStatusCode(), equalTo(HttpStatus.NOT_FOUND));
     }
 
 }
