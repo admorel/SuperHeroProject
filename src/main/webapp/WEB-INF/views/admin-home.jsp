@@ -18,7 +18,9 @@
 
 <div>
 
-    <h1>Hello Free World ( this page is open for every one ) !!!</h1>
+    <h1>Welcome <b><c:out value="${user}"/></b> (this page is protected) !!!</h1>
+
+    <a href="<c:url value="/logout" />">Logout</a>
 
 </div>
 

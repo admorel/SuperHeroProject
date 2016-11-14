@@ -18,7 +18,7 @@
 
 <div>
 
-    <h1>Hello Closed World ( this page is protected ) !!!</h1>
+    <h1>Hello Free World ( this is a JSP page open for every one ) !!!</h1>
 
 </div>
 

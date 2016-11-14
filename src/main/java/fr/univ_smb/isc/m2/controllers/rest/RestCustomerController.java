@@ -15,28 +15,26 @@ import static java.lang.Integer.parseInt;
 import static java.util.stream.Collectors.toList;
 
 @RestController
-@RequestMapping("/api/customers")
-public class CustomerController {
+@RequestMapping("/api")
+public class RestCustomerController {
 
     private final CustomerService customerService;
 
-    @Autowired(required = true)
-    public CustomerController(CustomerService customerService) {
+    @Autowired()
+    public RestCustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/customers", method = RequestMethod.GET)
     public List<Customer> customer() {
         return customerService.all();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/customers/{id}", method = RequestMethod.GET)
     public Customer customer(@PathVariable String id) {
 
         int customerId = parseInt(id);
-
-        System.err.println("Searching "  + customerId);
 
         List<Customer> collect = customerService.all().stream().filter(u -> u.id == customerId).collect(toList());
 
