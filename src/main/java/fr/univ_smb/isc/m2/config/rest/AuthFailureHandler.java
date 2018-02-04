@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import static javax.servlet.http.HttpServletResponse.SC_UNAUTHORIZED;
+
 @Component
 public class AuthFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        response.setStatus(SC_UNAUTHORIZED);
         PrintWriter writer = response.getWriter();
         writer.write(exception.getMessage());
         writer.flush();
