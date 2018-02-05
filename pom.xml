@@ -140,23 +140,32 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
                     <path>/</path>
-                    <port>9135</port>
-                    <fork>true</fork>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>start</id>
+                        <id>start-integration-test</id>
                         <goals>
                             <goal>run-war</goal>
                         </goals>
                         <phase>pre-integration-test</phase>
+                        <configuration>
+                            <path>/</path>
+                            <port>9135</port>
+                            <fork>true</fork>
+                        </configuration>
                     </execution>
                     <execution>
-                        <id>stop</id>
+                        <id>stop-integration-test</id>
                         <goals>
                             <goal>shutdown</goal>
                         </goals>
                         <phase>post-integration-test</phase>
+                    </execution>
+                    <execution>
+                        <id>start</id>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
