@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class CustomerService {
 
@@ -21,5 +23,17 @@ public class CustomerService {
 
     public List<Customer> all() {
         return customers;
+    }
+
+    public Customer selectById(int customerId) {
+        List<Customer> collect = customers.stream()
+                .filter(u -> u.id == customerId)
+                .collect(toList());
+
+        if (collect.isEmpty()) {
+            return null;
+        } else {
+            return collect.get(0);
+        }
     }
 }

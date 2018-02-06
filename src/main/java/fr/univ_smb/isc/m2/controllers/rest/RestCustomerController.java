@@ -6,13 +6,13 @@ import fr.univ_smb.isc.m2.domain.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 import static java.lang.Integer.parseInt;
-import static java.util.stream.Collectors.toList;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 @RequestMapping("/api")
@@ -26,24 +26,16 @@ public class RestCustomerController {
     }
 
 
-    @RequestMapping(value = "/customers", method = RequestMethod.GET)
+    @RequestMapping(value = "/customers", method = GET, produces = "application/json;charset=UTF-8")
     public List<Customer> customer() {
         return customerService.all();
     }
 
-    @RequestMapping(value = "/customers/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/customers/{id}", method = GET, produces = "application/json;charset=UTF-8")
     public Customer customer(@PathVariable String id) {
-
         int customerId = parseInt(id);
-
-        List<Customer> collect = customerService.all().stream().filter(u -> u.id == customerId).collect(toList());
-
-        if (collect.isEmpty()) {
-            throw new ResourceNotFoundException();
-        }
-
-        return collect.get(0);
-
+        Customer customer = customerService.selectById(customerId);
+        return Optional.ofNullable(customer).orElseThrow(ResourceNotFoundException::new);
     }
 
 }
