@@ -36,4 +36,10 @@ public class CustomerService {
             return collect.get(0);
         }
     }
+
+    public Customer create(String lastName, String firstName) {
+        Customer customer = new Customer(firstName, lastName);
+        customers.add(customer);
+        return customer;
+    }
 }
