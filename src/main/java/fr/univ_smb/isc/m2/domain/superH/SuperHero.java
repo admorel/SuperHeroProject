@@ -47,7 +47,7 @@ public class SuperHero {
     /**
      * Setter du nom
      *
-     * @param nom
+     * @param nouveau nom du héro
      */
     public void setNom(String nom) {
         this.nom = nom;
@@ -124,13 +124,15 @@ public class SuperHero {
 
 
     /**
+     * Donne la taille de la liste des commentaires
      *
-     * @return
+     * @return la longueur de la liste des commentaires
      */
     public int commentairesLength()
     {
         return commentaires.size();
     }
+
 
     /**
      * Retire le commentaire à l'indice indexCommentaireASupprimer
@@ -151,6 +153,7 @@ public class SuperHero {
     public List<String> getCommentaires() {
         return commentaires;
     }
+
 
     /**
      * Vérifie si la liste des commentaires est vide
