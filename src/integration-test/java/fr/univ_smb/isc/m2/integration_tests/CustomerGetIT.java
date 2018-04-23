@@ -20,7 +20,7 @@ public class CustomerGetIT {
     @Test
     public void should_200_On_Existing_Customer() throws IOException, URISyntaxException {
 
-        HttpUriRequest request = new HttpGet(new URL("http://localhost:" + 9135 + "/api/customers/" + 5).toURI());
+        HttpUriRequest request = new HttpGet(new URL("http://localhost:" + 9135 + "/api/customers/" + 6).toURI());
 
         HttpResponse response = HttpClientBuilder.create().build().execute(request);
 

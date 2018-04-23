@@ -19,6 +19,7 @@ public class CustomerService {
         customers.add(new Customer("Ian", "Paice"));
         customers.add(new Customer("Rod", "Evans"));
         customers.add(new Customer("Nick", "Simper"));
+        customers.add(new Customer("Charles", "Xavier"));
     }
 
     public List<Customer> all() {
