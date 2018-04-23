@@ -25,6 +25,10 @@ public class SuperHeroServiceUnitTest {
         // Do nothing -> can't fail !
     }
 
+    /*
+    * Test du service de création
+    */
+
     @Test
     public void should_add_superHero_to_the_end_of_superHero_list()
     {
@@ -46,6 +50,9 @@ public class SuperHeroServiceUnitTest {
     }
 
 
+    /*
+    * Test du service des commentaires
+    */
     @Test
     public void should_return_the_good_comment()
     {
@@ -125,6 +132,9 @@ public class SuperHeroServiceUnitTest {
     }
 
 
+    /*
+    * Test de délétion d'un hero
+     */
     @Test
     public void should_delete_an_hero()
     {
@@ -176,9 +186,31 @@ public class SuperHeroServiceUnitTest {
 
         shService.removeSH("Batman");
 
-        assertThat(shService.all().get(shService.all().size()-1).getNom().equals("Batman")).isEqualTo(false);
+        assertThat(shService.all().get(0).getNom().equals("Batman")).isEqualTo(false);
 
     }
+
+
+
+    /*
+    * Test de selection d'un héro
+    */
+
+    @Test
+    public void should_select_batman()
+    {
+        SuperHeroService shService = new SuperHeroService();
+        SuperHero shTest;
+
+        shTest = shService.selectById("Batman");
+
+        assertThat(shTest.getNom()).isEqualTo("Batman");
+        assertThat(shTest.getIdentiteSecrete()).isEqualTo("Bruce Wayne");
+        assertThat(shTest.getPouvoir()).isEqualTo("Aucun");
+        assertThat(shTest.getNemesis()).isEqualTo("le Joker");
+    }
+
+
 
 
 
