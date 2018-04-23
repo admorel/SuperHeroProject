@@ -1,4 +1,4 @@
-package fr.univ_smb.isc.m2.unitTest;
+package fr.univ_smb.isc.m2.integration_tests;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
